@@ -1,0 +1,74 @@
+#######################################
+# Syntax Coloring Map For CIJE Weather Station
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+CijeWeatherStation	KEYWORD1
+WeatherReading	KEYWORD1
+WeatherStationConfig	KEYWORD1
+WeatherStationStatus	KEYWORD1
+CijeWeatherUtils	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+loop	KEYWORD2
+forceReading	KEYWORD2
+setWiFiCredentials	KEYWORD2
+setStationCredentials	KEYWORD2
+setAPIURL	KEYWORD2
+setDHTPin	KEYWORD2
+setStatusLEDPin	KEYWORD2
+setWindPin	KEYWORD2
+setReadingInterval	KEYWORD2
+setWindCalibration	KEYWORD2
+setTimeouts	KEYWORD2
+getStatus	KEYWORD2
+getStatusString	KEYWORD2
+isConnected	KEYWORD2
+getLastReading	KEYWORD2
+getConsecutiveFailures	KEYWORD2
+getUptime	KEYWORD2
+printSystemInfo	KEYWORD2
+printWiFiStatus	KEYWORD2
+printLastReading	KEYWORD2
+testSensors	KEYWORD2
+restart	KEYWORD2
+getConfig	KEYWORD2
+celsiusToFahrenheit	KEYWORD2
+fahrenheitToCelsius	KEYWORD2
+formatUptime	KEYWORD2
+formatTimestamp	KEYWORD2
+isValidTemperature	KEYWORD2
+isValidHumidity	KEYWORD2
+isValidWindSpeed	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+WS_STATUS_INITIALIZING	LITERAL1
+WS_STATUS_WIFI_CONNECTING	LITERAL1
+WS_STATUS_WIFI_CONNECTED	LITERAL1
+WS_STATUS_WIFI_FAILED	LITERAL1
+WS_STATUS_SENSOR_ERROR	LITERAL1
+WS_STATUS_READING_SENSORS	LITERAL1
+WS_STATUS_SUBMITTING_DATA	LITERAL1
+WS_STATUS_SUBMIT_SUCCESS	LITERAL1
+WS_STATUS_SUBMIT_FAILED	LITERAL1
+WS_STATUS_IDLE	LITERAL1
+
+DEFAULT_DHT_PIN	LITERAL1
+DEFAULT_STATUS_LED_PIN	LITERAL1
+DEFAULT_WIND_PIN	LITERAL1
+DEFAULT_DHT_TYPE	LITERAL1
+DEFAULT_READING_INTERVAL	LITERAL1
+DEFAULT_WIFI_TIMEOUT	LITERAL1
+DEFAULT_HTTP_TIMEOUT	LITERAL1
+DEFAULT_API_URL	LITERAL1
+CIJE_WEATHER_STATION_VERSION	LITERAL1
