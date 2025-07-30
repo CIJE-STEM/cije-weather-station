@@ -30,13 +30,13 @@
 
 // Pin Assignments
 //DHT22 Temperature, Humidity
-#define DHTPIN 2 
+#define DHTPIN 32 
 
 #define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
 
 DHT dht(DHTPIN, DHTTYPE);
 
-#define ADC_PIN_WIND 32                              // Analog pin for wind speed sensor (e.g., GPIO 36 is ADC1_CHANNEL_0)
+#define ADC_PIN_WIND 34                              // Analog pin for wind speed sensor (e.g., GPIO 36 is ADC1_CHANNEL_0)
 
 // Hardware Specifications
 const String BOARD_MODEL = "ESP32-WROOM-32";
@@ -61,8 +61,8 @@ const float WIND_CONVERSION = WIND_SPEED_MAX_MPH / WIND_VOLTAGE_MAX; // Conversi
 // ==================== NETWORK CONFIGURATION ====================
 
 // WiFi Configuration
-const char* WIFI_SSID = "OSxDesign_Rem";           // Replace with your WiFi network name
-const char* WIFI_PASSWORD = "ixnaywifi";   // Replace with your WiFi password
+const char* WIFI_SSID = "PuthamChalet";           // Replace with your WiFi network name
+const char* WIFI_PASSWORD = "67355976";   // Replace with your WiFi password
 const int WIFI_TIMEOUT = 30000;                     // 30 seconds WiFi connection timeout
 const int HTTP_TIMEOUT = 15000;                     // 15 seconds HTTP request timeout
 
