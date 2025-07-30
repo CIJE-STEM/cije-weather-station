@@ -2,6 +2,8 @@
 
 Arduino library for ESP32-based weather stations that collect and submit data to the CIJE Weather Hub.
 
+Register station at https://thecije.org/cije-weather-station-hub/#register to obtain a passkey and station ID required for uploading data from your weather station.
+
 ## Features
 
 - **Easy Configuration**: Simple API for setting up WiFi, sensors, and station credentials
@@ -11,60 +13,13 @@ Arduino library for ESP32-based weather stations that collect and submit data to
 - **Error Handling**: Automatic retry logic and failure recovery
 - **Serial Commands**: Interactive debugging and testing commands
 
-## Hardware Requirements
+## Hardware
 
 - ESP32 development board
 - DHT22 temperature and humidity sensor
-- Analog wind speed sensor (optional)
-- Status LED (built-in LED works)
+- Analog wind speed sensor (DC motor turbine)
+- BME280 Pressure sensor
 
-## Wiring Diagram
-
-\`\`\`
-ESP32 Pin | Component
-----------|----------
-GPIO 32   | DHT22 Data Pin
-GPIO 36   | Wind Sensor Analog Output
-GPIO 2    | Status LED (built-in)
-3.3V      | DHT22 VCC, Wind Sensor VCC
-GND       | DHT22 GND, Wind Sensor GND
-\`\`\`
-
-## Installation
-
-1. Download the library files
-2. Place in your Arduino libraries folder: `~/Arduino/libraries/cije-weather-station/`
-3. Install required dependencies:
-   - DHT sensor library by Adafruit
-   - Adafruit Unified Sensor
-
-## Quick Start
-
-\`\`\`cpp
-#include <CijeWeatherStation.h>
-
-CijeWeatherStation station;
-
-void setup() {
-  Serial.begin(115200);
-  
-  // Configure the station
-  station.setWiFiCredentials("YOUR_WIFI", "YOUR_PASSWORD");
-  station.setStationCredentials(1, "YOUR_PASSKEY");
-  station.setDHTPin(32, DHT22);
-  
-  // Initialize
-  if (!station.begin()) {
-    Serial.println("Failed to initialize!");
-    while(true) delay(1000);
-  }
-}
-
-void loop() {
-  station.loop();
-  delay(100);
-}
-\`\`\`
 
 ## Configuration Methods
 
@@ -166,17 +121,7 @@ Quick testing version with 30-second intervals for rapid development.
 4. **Wind sensor readings incorrect**
    - Calibrate using `setWindCalibration()`
    - Check analog pin connection (GPIO 36)
-   - Verify sensor voltage range (0-3.3V)
-
-### Debug Information
-
-Use `station.printSystemInfo()` to get comprehensive debug information including:
-- Library version
-- Hardware configuration
-- Network status
-- Memory usage
-- Sensor readings
-- Error counts
+   - Verify sensor voltage range (0-5V)
 
 ## Library Structure
 
