@@ -15,7 +15,7 @@ Register station at [CIJE Weather Station Hub](https://v0-cije-weather-hub.verce
 
 ## Hardware
 
-- ESP32 development board [ESP32 Board Setup on Arduino](/docs/ESP32 setup.pdf)
+- ESP32 development board [ESP32 Board Setup on Arduino](https://github.com/CIJE-STEM/cije-weather-station/docs/ESP32 setup.pdf)
 - DHT22 temperature and humidity sensor
 - Analog wind speed sensor (DC motor turbine)
 - BME280 Pressure sensor
