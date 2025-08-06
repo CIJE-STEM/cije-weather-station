@@ -24,15 +24,11 @@ Register station at [CIJE Weather Station Hub](https://v0-cije-weather-hub.verce
 ## Configuration Methods
 
 ### Network Configuration
-\`\`\`cpp
 station.setWiFiCredentials("SSID", "PASSWORD");
 station.setAPIURL("https://your-api-url.com/api/weather/submit");
-\`\`\`
 
 ### Station Credentials
-\`\`\`cpp
 station.setStationCredentials(stationID, "passkey");
-\`\`\`
 
 ### Hardware Configuration
 \`\`\`cpp
