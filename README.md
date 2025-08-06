@@ -1,4 +1,4 @@
-# CIJE Weather Station Library
+# CIJE Weather Station
 
 Arduino library for ESP32-based weather stations that collect and submit data to the CIJE Weather Hub.
 
@@ -31,27 +31,21 @@ station.setAPIURL("https://your-api-url.com/api/weather/submit");
 station.setStationCredentials(stationID, "passkey");
 
 ### Hardware Configuration
-\`\`\`cpp
 station.setDHTPin(32, DHT22);        // DHT sensor on GPIO 32
 station.setStatusLEDPin(2);          // Status LED on GPIO 2
 station.setWindPin(36);              // Wind sensor on GPIO 36
-\`\`\`
+
 
 ### Timing Configuration
-\`\`\`cpp
 station.setReadingInterval(3600000); // 1 hour in milliseconds
 station.setTimeouts(30000, 15000);   // WiFi and HTTP timeouts
-\`\`\`
 
 ### Wind Sensor Calibration
-\`\`\`cpp
 station.setWindCalibration(3.3, 32.4); // 3.3V max = 32.4 MPH max
-\`\`\`
+
 
 ## Serial Commands
-
 When connected to Serial Monitor, you can use these commands:
-
 - `test` - Force an immediate sensor reading
 - `info` - Display system information
 - `wifi` - Show WiFi connection status
@@ -62,25 +56,20 @@ When connected to Serial Monitor, you can use these commands:
 - `help` - Show available commands
 
 ## Status LED Indicators
-
 - **Slow blink (2s)**: Normal operation, connected
 - **Fast blink (200ms)**: Connecting to WiFi
 - **Very fast blink (100ms)**: Error condition
 - **Triple flash**: Successful data submission
 
 ## API Integration
-
 The library automatically formats and submits data to the CIJE Weather Hub API:
-
-\`\`\`
 POST /api/weather/submit
 Content-Type: application/x-www-form-urlencoded
 
 station_id=1&passkey=YOUR_PASSKEY&temperature=72.5&humidity=45.2&wind_speed=5.3
-\`\`\`
+
 
 ## Error Handling
-
 - Automatic WiFi reconnection
 - Sensor reading validation
 - HTTP retry logic
