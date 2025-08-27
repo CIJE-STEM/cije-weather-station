@@ -2,7 +2,7 @@
 
 Arduino library for ESP32-based weather stations that collect and submit data to the CIJE Weather Hub.
 
-Register station at [CIJE Weather Station Hub](https://v0-cije-weather-hub.vercel.app/)  to obtain a passkey and station ID required for uploading data from your weather station.
+Register station at [CIJE Weather Station Hub](https://thecije.org/weather-hub/)  to obtain a passkey and station ID required for uploading data from your weather station.
 
 ## Features
 
