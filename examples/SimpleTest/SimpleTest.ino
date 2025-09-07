@@ -10,8 +10,8 @@
 CijeWeatherStation station;
 
 // Configuration - UPDATE THESE VALUES!
-const char* WIFI_SSID = "YOUR_WIFI_SSID";
-const char* WIFI_PASSWORD = "YOUR_WIFI_PASSWORD";
+const char* WIFI_SSID = "PutnamChaley";
+const char* WIFI_PASSWORD = "67355976";
 const int STATION_ID = 1;
 const char* PASSKEY = "20XV54";
 
