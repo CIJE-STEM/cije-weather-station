@@ -15,7 +15,7 @@ Register station at [CIJE Weather Station Hub](https://thecije.org/weather-hub/)
 
 ## Hardware
 
-- ESP32 development board [ESP32 Board Setup on Arduino](https://github.com/CIJE-STEM/cije-weather-station/blob/main/docs/ESP32setup.pdf)
+- ACEBOTT ESP32 development board [ESP32 Board Setup on Arduino](https://github.com/CIJE-STEM/cije-weather-station/blob/main/docs/ESP32setup.pdf)
 - DHT22 temperature and humidity sensor
 - Analog wind speed sensor (DC motor turbine)
 - BME280 Pressure sensor
@@ -93,9 +93,8 @@ Quick testing version with 30-second intervals for rapid development.
 ### Common Issues
 
 1. **DHT sensor not responding**
-   - Check wiring: VCC to 3.3V, GND to GND, DATA to GPIO 32
-   - Ensure 2-second stabilization delay
-   - Try different GPIO pin if needed
+   - Check wiring: VCC to 5V, GND to GND, DATA to GPIO 32
+   - There are 3.3V pins and the DHT won't work
 
 2. **WiFi connection fails**
    - Verify SSID and password are correct
