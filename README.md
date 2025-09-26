@@ -20,6 +20,10 @@ Register station at [CIJE Weather Station Hub](https://thecije.org/weather-hub/)
 - Analog wind speed sensor (DC motor turbine)
 - BME280 Pressure sensor
 
+## Software Usage
+Build the weather station by adding components and testing with code one by one.
+There will be a choice to use either the DHT22 (temperature and humidity) or the BME280 (temperature, humidity and pressure.
+The example code has both library based programming and non-library code. Due to the 
 
 ## Configuration Methods
 
