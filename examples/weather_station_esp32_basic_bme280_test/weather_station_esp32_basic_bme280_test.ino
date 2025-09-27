@@ -7,17 +7,12 @@
  * Hardware:
  * - ESP32-WROOM-32 Development Board
  * - BME280 Temperature , Humidity and Pressure Sensor
- * - Analog Wind Speed Sensor (e.g., anemometer with analog output)
  * 
  * Connections:
  * - BME280 VCC -> 3.3V or 5V (BME280 supports both)
  * - BME280 GND -> GND  
- * - BME280 SCL -> GPIO 
- * - BME280 SDA -> GPIO 
- * - Wind Speed Sensor Analog Out -> ADC1_CHANNEL_0 (GPIO 32) - or another suitable ADC pin
- * - Wind Speed Sensor VCC -> 3.3V or 5V
- * - Wind Speed Sensor GND -> GND
- *   Battery Voltage -> GPIO32 ADC4
+ * - BME280 SCL -> GPIO SCL
+ * - BME280 SDA -> GPIO SDA
  *  
  * Libraries Required:
  * - WiFi (ESP32 Core)

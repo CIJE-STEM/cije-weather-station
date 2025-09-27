@@ -9,8 +9,8 @@
  * Connections:
  * - BME280 VCC -> 3.3V or 5V (BME280 supports both)
  * - BME280 GND -> GND  
- * - BME280 SCL -> GPIO 
- * - BME280 SDA -> GPIO 
+ * - BME280 SCL -> GPIO SCL
+ * - BME280 SDA -> GPIO SDA
  * - Wind Speed Sensor Analog Out -> ADC1_CHANNEL_0 (GPIO 32) - or another suitable ADC pin
  * - Wind Speed Sensor VCC -> 3.3V or 5V
  * - Wind Speed Sensor GND -> GND
@@ -19,6 +19,13 @@
  * - WiFi (ESP32 Core)
  * - HTTPClient (ESP32 Core)
  * - Adafruit BME280 Temp/Humd/Press Sensor
+
+Change
+const int STATION_ID = 5;                           // Replace with your registered station ID
+const String PASSKEY = "EEGYLM";                   // Weather station passkey
+const char* WIFI_SSID = "OSxDesign_Rem";           // Replace with your WiFi network name
+const char* WIFI_PASSWORD = "ixnaywifi"; 
+const String STATION_NAME = "BJDelta";
  *
  */
 
