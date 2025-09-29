@@ -84,8 +84,8 @@ const String CONTENT_TYPE = "application/x-www-form-urlencoded";
 // ==================== TIMING CONFIGURATION ====================
 
 // Sampling Configuration
-const unsigned long SAMPLING_INTERVAL = 600000;       // 1 hour = 3,600,000 milliseconds
-//const unsigned long SAMPLING_INTERVAL = 3600000;   // 1 hour = 3,600,000 milliseconds
+
+const unsigned long SAMPLING_INTERVAL = 3600000;   // 1 hour = 3,600,000 milliseconds
 const int BME280_STABILIZATION_DELAY = 2000;         // 2 seconds for sensor stabilization
 
 // LED Feedback
