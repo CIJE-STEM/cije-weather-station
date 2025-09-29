@@ -35,8 +35,8 @@ const unsigned long SLEEP_INTERVAL_MS = 60000;  // 1 minute between readings
 const float PULSE_FACTOR   = 2.25;            // mph per pulse/sec (calibrate)
 
 // WiFi credentials
-const char* WIFI_SSID      = "PutnamChalet";
-const char* WIFI_PASS      = "67355976";
+const char* WIFI_SSID      = "LOCAL_SSID";
+const char* WIFI_PASS      = "WIFI_PASSWORD";
 
 // CIJE Weather Hub API
 const String API_URL       = "https://v0-cije-weather-hub.vercel.app/api/weather/submit";
