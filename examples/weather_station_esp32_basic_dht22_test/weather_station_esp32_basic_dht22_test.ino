@@ -92,7 +92,9 @@ void readAndSendWeatherData()
   // Compute heat index in Celsius (isFahreheit = false)
   float hic = dht.computeHeatIndex(temperature, humidity, false);
 
-    Serial.println("Temperature: " + String(temperature, 2) + "°C");
+  temperature = f;        //Reassign temperature variable for greater utility (C vs F) 
+
+    Serial.println("Temperature: " + String(f, 2) + "°F");
     Serial.println("Humidity: " + String(humidity, 2) + "%");
 }
     

@@ -88,11 +88,11 @@ void readAndSendWeatherData()
   else 
   {
     // Get Temp, Humidity and Pressure from BME280 Sensor
-    temperature = bme.readTemperature();
+    temperature = temperature = (1.8 * bme.readTemperature()) + 32.0;
     humidity = bme.readHumidity();
-    pressure = bme.readPressure() / 3386.38;  // Convert Pa to inHg
+    pressure = bme.readPressure() / 3386.38;  // Convert to inHg
     //pressure = bme.readPressure() / 100.0F;  // Convert Pa 
-    Serial.println("Temperature: " + String(temperature, 2) + "°C");
+    Serial.println("Temperature: " + String(temperature, 2) + "°F");
     Serial.println("Humidity: " + String(humidity, 2) + "%");
     Serial.println("Pressure: " + String(pressure, 2) + " inHg");
 

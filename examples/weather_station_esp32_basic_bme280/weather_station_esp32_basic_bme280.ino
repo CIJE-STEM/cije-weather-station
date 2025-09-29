@@ -67,14 +67,14 @@ const float WIND_CONVERSION = WIND_SPEED_MAX_MPH / WIND_VOLTAGE_MAX; // Conversi
 // ==================== NETWORK CONFIGURATION ====================
 
 // WiFi Configuration
-const char* WIFI_SSID = "OSxDesign_Rem";           // Replace with your WiFi network name
-const char* WIFI_PASSWORD = "ixnaywifi";   // Replace with your WiFi password
+const char* WIFI_SSID = "YOURSSID";           // Replace with your WiFi network name
+const char* WIFI_PASSWORD = "PASSWORD";   // Replace with your WiFi password
 const int WIFI_TIMEOUT = 30000;                     // 30 seconds WiFi connection timeout
 const int HTTP_TIMEOUT = 15000;                     // 15 seconds HTTP request timeout
 
 // Weather Station Credentials
-const int STATION_ID = 5;                           // Replace with your registered station ID
-const String PASSKEY = "EEGYLM";                   // Weather station passkey
+const int STATION_ID = #;                           // Replace with your registered station ID
+const String PASSKEY = "XXXXX";                     // Weather station passkey
 
 // API Configuration
 const String API_URL = "https://v0-cije-weather-hub.vercel.app/api/weather/submit";
@@ -118,7 +118,7 @@ void setup()
   Serial.println("Wind Speed Analog Pin: GPIO " + String(ADC_PIN_WIND));
   Serial.print("Sampling Interval: ");
   Serial.print( SAMPLING_INTERVAL/60000.0);
-  Serial.println( " minutes");
+  Serial.println(" minutes");
   Serial.println("=================================");
   
   // Initialize hardware
@@ -251,16 +251,16 @@ void readAndSendWeatherData()
   else 
   {
     // Get Temp, Humidity and Pressure from BME280 Sensor
-    temperature = bme.readTemperature();
+    temperature = temperature = (1.8 * bme.readTemperature()) + 32.0;
     humidity = bme.readHumidity();
-    //pressure = bme.readPressure() / 3386.38;  // Convert Pa to Hg
-    pressure = bme.readPressure() / 100.0F;  // Convert Pa to Hg
+    pressure = bme.readPressure() / 3386.38;  // Convert to inHg
+    //pressure = bme.readPressure() / 100.0F;  // Convert Pa
     
     readWindSpeed();
 
-    Serial.println("Temperature: " + String(temperature, 2) + "°C");
+    Serial.println("Temperature: " + String(temperature, 2) + "°F");
     Serial.println("Humidity: " + String(humidity, 2) + "%");
-    Serial.println("Pressure: " + String(pressure, 2) + " hPa");
+    Serial.println("Pressure: " + String(pressure, 2) + " inHg");
     Serial.println("Wind Speed: " + String(wind_speed, 2) + " mph");
     
     blinkSuccess();

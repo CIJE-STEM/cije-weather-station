@@ -61,14 +61,14 @@ const float WIND_CONVERSION = WIND_SPEED_MAX_MPH / WIND_VOLTAGE_MAX; // Conversi
 // ==================== NETWORK CONFIGURATION ====================
 
 // WiFi Configuration
-const char* WIFI_SSID = "PuthamChalet";           // Replace with your WiFi network name
-const char* WIFI_PASSWORD = "67355976";   // Replace with your WiFi password
+const char* WIFI_SSID = "YOURSSID ";           // Replace with your WiFi network name
+const char* WIFI_PASSWORD = "PASSWORD";   // Replace with your WiFi password
 const int WIFI_TIMEOUT = 30000;                     // 30 seconds WiFi connection timeout
 const int HTTP_TIMEOUT = 15000;                     // 15 seconds HTTP request timeout
 
 // Weather Station Credentials
-const int STATION_ID = 1;                           // Replace with your registered station ID
-const String PASSKEY = "20XV54";                   // Weather station passkey
+const int STATION_ID = #;                           // Replace with your registered station ID
+const String PASSKEY = "XXXXXX";                   // Weather station passkey
 
 // API Configuration
 const String API_URL = "https://v0-cije-weather-hub.vercel.app/api/weather/submit";
@@ -114,7 +114,7 @@ void setup()
   Serial.println("Wind Speed Analog Pin: GPIO " + String(ADC_PIN_WIND));
   Serial.print("Sampling Interval: ");
   Serial.print( SAMPLING_INTERVAL/60000.0);
-  Serial.println( " minutes");
+  Serial.println(" minutes");
   Serial.println("=================================");
   
   // Initialize hardware
@@ -242,10 +242,12 @@ void readAndSendWeatherData()
   float hif = dht.computeHeatIndex(f, humidity);
   // Compute heat index in Celsius (isFahreheit = false)
   float hic = dht.computeHeatIndex(temperature, humidity, false);
-    
+
+  temperature = f;        //Reassign temperature variable for greater utility (C vs F)  
+  
     readWindSpeed();
 
-    Serial.println("Temperature: " + String(temperature, 2) + "°C");
+    Serial.println("Temperature: " + String(temperature, 2) + "°F");
     Serial.println("Humidity: " + String(humidity, 2) + "%");
     Serial.println("Wind Speed: " + String(wind_speed, 2) + " mph");
     
