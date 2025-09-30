@@ -1,5 +1,7 @@
 # CIJE Weather Station
 
+There are 2 tracks to build a weather station
+
 Arduino library for ESP32-based weather stations that collect and submit data to the CIJE Weather Hub.
 
 Register station at [CIJE Weather Station Hub](https://thecije.org/weather-hub/)  to obtain a passkey and station ID required for uploading data from your weather station.
@@ -15,17 +17,58 @@ Register station at [CIJE Weather Station Hub](https://thecije.org/weather-hub/)
 
 ## Hardware
 
-- ACEBOTT ESP32 development board [ESP32 Board Setup on Arduino](https://github.com/CIJE-STEM/cije-weather-station/blob/main/docs/ESP32setup.pdf)
+Track 1: WiFi enabled / Post to Weather Hub
+- ACEBOTT ESP32 development board
 - DHT22 temperature and humidity sensor
 - Analog wind speed sensor (DC motor turbine)
-- BME280 Pressure sensor
+- BME280 (Pressure, Temperature and Humidity)
+
+The ESP32 will need to be setup in the Arduino IDE. Follow the [ESP32 Board Setup on Arduino](https://github.com/CIJE-STEM/cije-weather-station/blob/main/docs/ESP32setup.pdf)
+
+Track 2: Local weather station displaying in classroom
+- nRF24 Tranceiver
+- Arduino Uno
+- 16x2 LCD Screen or other display unit
+- DHT22 temperature and humidity sensor
+- Analog wind speed sensor (DC motor turbine)
+- BME280 (Pressure, Temperature and Humidity)
+
+
+## Weather Station Build
+Use the Weather Station Build instructions using the DHT22 OR the BME280
+[Weather Station with BME280 Build](https://github.com/CIJE-STEM/cije-weather-station/blob/main/docs/Weather%20Station%20Build%20BME280%20Basic.pdf)
+[Weather Station with DHT22 Build](https://github.com/CIJE-STEM/cije-weather-station/blob/main/docs/Weather%20Station%20Build%20DHT22%20Basic.pdf)
 
 ## Software Usage
-Build the weather station by adding components and testing with code one by one.
-There will be a choice to use either the DHT22 (temperature and humidity) or the BME280 (temperature, humidity and pressure.
-The example code has both library based programming and non-library code. Due to the 
+There is both library code and non-library code designated by the filename.
+Build the weather station by adding components and testing with code one by one using example code designated as "test"
 
-## Configuration Methods
+In addition to the test code for each component, there is a main code for your specific build that contains all the hardware elements. Choose the program based on your hardware configuration:
+
+## Examples
+
+###Non-Library code
+####Tests
+weather_station_esp32_library_dht22_test
+weather_station_esp32_basic_bme280_test
+
+####Main
+
+weather_station_esp32_basic_bme280.ino
+
+weather_station_esp32_basic_dht22.ino
+
+###Library code
+
+weather_station_library_esp32_connection_test
+
+
+###nRF24 Local Weather Station
+weather_station_uno_nrf24_receive_lcd_datalogging
+weather_station_uno_nrf24_transmit_dht22_voltage
+
+
+## Library Configuration Methods
 
 ### Network Configuration
 station.setWiFiCredentials("SSID", "PASSWORD");
@@ -80,13 +123,10 @@ station_id=1&passkey=YOUR_PASSKEY&temperature=72.5&humidity=45.2&wind_speed=5.3
 - Consecutive failure tracking
 - Automatic restart after 5 consecutive failures
 
-## Examples
 
-### BasicWeatherStation
-Full featured weather station with all sensors and interactive commands.
 
-### SimpleTest
-Quick testing version with 30-second intervals for rapid development.
+
+
 
 ## Troubleshooting
 
@@ -119,10 +159,7 @@ cije-weather-station/
 │   ├── CijeWeatherStation.h
 │   └── CijeWeatherStation.cpp
 ├── examples/
-│   ├── BasicWeatherStation/
-│   │   └── BasicWeatherStation.ino
-│   └── SimpleTest/
-│       └── SimpleTest.ino
+│   ├──
 ├── library.properties
 ├── keywords.txt
 └── README.md

@@ -1,5 +1,4 @@
 /*
- * BasicWeatherStation.ino
  * 
  * Basic example using the CijeWeatherStation library
  * This example shows how to set up a weather station with DHT22 and wind sensor
