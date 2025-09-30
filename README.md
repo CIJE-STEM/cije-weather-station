@@ -2,7 +2,7 @@
 
 Weather affects us all—shaping our daily routines, the seasons we experience, and the environment around us. It’s also part of a bigger picture: the patterns that unfold over time. By collecting and sharing local weather data, we can begin to see those patterns, compare conditions across communities, and learn more about the world we live in. The Weather Station Hub is built to make that possible—powered by student-made stations across schools. Each station collects real-time data that feeds into this hub, where you can explore maps, graphs, and news. Build your own station, register it, and join the growing community of schools tracking weather together.
 
-2 tracks, One hub
+## 2 tracks, One hub
 There are 2 tracks to build a weather station: Either an ESPR32 based station with WiFi that uploads data to the Weather Station Hub or an Uno based station with LCD for a localized weather station.
 
 Arduino library for ESP32-based weather stations that collect and submit data to the CIJE Weather Hub.
