@@ -1,6 +1,9 @@
 # CIJE Weather Station
 
-There are 2 tracks to build a weather station
+Weather affects us all—shaping our daily routines, the seasons we experience, and the environment around us. It’s also part of a bigger picture: the patterns that unfold over time. By collecting and sharing local weather data, we can begin to see those patterns, compare conditions across communities, and learn more about the world we live in. The Weather Station Hub is built to make that possible—powered by student-made stations across schools. Each station collects real-time data that feeds into this hub, where you can explore maps, graphs, and news. Build your own station, register it, and join the growing community of schools tracking weather together.
+
+2 tracks, One hub
+There are 2 tracks to build a weather station: Either an ESPR32 based station with WiFi that uploads data to the Weather Station Hub or an Uno based station with LCD for a localized weather station.
 
 Arduino library for ESP32-based weather stations that collect and submit data to the CIJE Weather Hub.
 
@@ -50,23 +53,23 @@ In addition to the test code for each component, there is a main code for your s
 
 ## Examples
 
-###Non-Library code
-####Tests
+### Non-Library code
+#### Tests
 weather_station_esp32_library_dht22_test
 weather_station_esp32_basic_bme280_test
 
-####Main
+#### Main
 
 weather_station_esp32_basic_bme280.ino
 
 weather_station_esp32_basic_dht22.ino
 
-###Library code
+### Library code
 
 weather_station_library_esp32_connection_test
 
 
-###nRF24 Local Weather Station
+### nRF24 Local Weather Station
 weather_station_uno_nrf24_receive_lcd_datalogging
 weather_station_uno_nrf24_transmit_dht22_voltage
 
