@@ -35,9 +35,12 @@ Track 2: Local weather station displaying in classroom
 
 
 ## Weather Station Build
-Use the Weather Station Build instructions using the DHT22 OR the BME280
-[Weather Station with BME280 Build](https://github.com/CIJE-STEM/cije-weather-station/blob/main/docs/Weather%20Station%20Build%20BME280%20Basic.pdf)
+Use the Weather Station Build instructions using the DHT22
 [Weather Station with DHT22 Build](https://github.com/CIJE-STEM/cije-weather-station/blob/main/docs/Weather%20Station%20Build%20DHT22%20Basic.pdf)
+OR the BME280
+[Weather Station with BME280 Build](https://github.com/CIJE-STEM/cije-weather-station/blob/main/docs/Weather%20Station%20Build%20BME280%20Basic.pdf)
+OR the local nRF24 weather station
+
 
 ## Software Usage
 There is both library code and non-library code designated by the filename.
