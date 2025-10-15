@@ -11,7 +11,7 @@
  * Connections:
  * - DHT22 VCC -> 3.3V or 5V (DHT22 supports both)
  * - DHT22 GND -> GND  
- * - DHT Data -> GPIO Pin 2 
+ * - DHT Data -> GPIO Pin 32 
  * 
  * Libraries Required:
  * - WiFi (ESP32 Core)
@@ -27,8 +27,8 @@
 // Pin Assignments
 //DHT22 Temperature, Humidity
 
-#define DHTPIN 5
-#define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
+#define DHTPIN 32
+#define DHTTYPE DHT22   // DHT22  (AM2302), AM2321
 
 DHT dht(DHTPIN, DHTTYPE);
 
@@ -43,7 +43,7 @@ void setup()
   delay(1000);
   
   Serial.println("\n=================================");
-  Serial.println("DHT22 Data Pin: 2 GPIO ");
+  Serial.println("DHT22 Data Pin: 32 GPIO ");
   Serial.println("=================================");
   
   // Initialize hardware
