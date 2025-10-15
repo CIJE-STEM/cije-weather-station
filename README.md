@@ -1,22 +1,10 @@
 # CIJE Weather Station
-
 Weather affects us all—shaping our daily routines, the seasons we experience, and the environment around us. It’s also part of a bigger picture: the patterns that unfold over time. By collecting and sharing local weather data, we can begin to see those patterns, compare conditions across communities, and learn more about the world we live in. The Weather Station Hub is built to make that possible—powered by student-made stations across schools. Each station collects real-time data that feeds into this hub, where you can explore maps, graphs, and news. Build your own station, register it, and join the growing community of schools tracking weather together.
 
 ## 2 tracks, One hub
-There are 2 tracks to build a weather station: Either an ESPR32 based station with WiFi that uploads data to the Weather Station Hub or an Uno based station with LCD for a localized weather station.
-
-Arduino library for ESP32-based weather stations that collect and submit data to the CIJE Weather Hub.
-
-Register station at [CIJE Weather Station Hub](https://thecije.org/weather-hub/)  to obtain a passkey and station ID required for uploading data from your weather station.
-
-## Features
-
-- **Easy Configuration**: Simple API for setting up WiFi, sensors, and station credentials
-- **Multiple Sensors**: Support for DHT22 (temperature/humidity) and analog wind sensors
-- **Automatic Submission**: Configurable intervals for data collection and API submission
-- **Status Monitoring**: LED status indicators and comprehensive system information
-- **Error Handling**: Automatic retry logic and failure recovery
-- **Serial Commands**: Interactive debugging and testing commands
+There are 2 tracks to build a weather station: 
+- Either an ESP32 based station with WiFi that uploads data to the Weather Station Hub or 
+- an Uno based station with nrf24 transceiver and an LCD for a localized weather station.
 
 ## Hardware
 
@@ -36,7 +24,6 @@ Track 2: Local weather station displaying in classroom
 - Analog wind speed sensor (DC motor turbine)
 - BME280 (Pressure, Temperature and Humidity)
 
-
 ## Weather Station Build
 Use the Weather Station Build instructions using the DHT22
 [Weather Station with DHT22 Build](https://github.com/CIJE-STEM/cije-weather-station/blob/main/docs/Weather%20Station%20Build%20DHT22%20Basic.pdf)
@@ -44,35 +31,43 @@ OR the BME280
 [Weather Station with BME280 Build](https://github.com/CIJE-STEM/cije-weather-station/blob/main/docs/Weather%20Station%20Build%20BME280%20Basic.pdf)
 OR the local nRF24 weather station
 
+## Register Station
+Register station at [CIJE Weather Station Hub](https://thecije.org/weather-hub/)  to obtain a passkey and station ID required for uploading data from your weather station.
 
 ## Software Usage
-There is both library code and non-library code designated by the filename.
+There is both library code and non-library (designated as "Basic") code designated by the filename.
 Build the weather station by adding components and testing with code one by one using example code designated as "test"
 
-In addition to the test code for each component, there is a main code for your specific build that contains all the hardware elements. Choose the program based on your hardware configuration:
+In addition to the test code for each component, there is main (no "test" suffix) code for your specific build that contains all the hardware elements. Choose the program based on your hardware configuration and preference (library vs. non-library):
 
 ## Examples
 
-### Non-Library code
+### Non-Library "Basic" code
 #### Tests
-weather_station_esp32_library_dht22_test
-weather_station_esp32_basic_bme280_test
+- weather_station_esp32_basic_dht22_test  // Tests the DHT22
+- weather_station_esp32_basic_bme280_test // Tests the BME280
+- weather_station_esp32_basic_anemometer_test // Tests the anemometer setup
+- weather_station_library_esp32_basicdata_test  // Tests the connection to the cloud weather database
 
 #### Main
-
-weather_station_esp32_basic_bme280.ino
-
-weather_station_esp32_basic_dht22.ino
+- weather_station_esp32_basic_bme280.ino  // Full weather station using the BME280 and anemometer to upload wind speed, temperature, humidity and pressure
+- weather_station_esp32_basic_dht22.ino  // Full weather station using the DHT22 and anemometer to upload wind speed, temperature and humidity
 
 ### Library code
-
-weather_station_library_esp32_connection_test
-
+- weather_station_library_esp32_connection_test  //Library code to test the connection to the weather hub database
 
 ### nRF24 Local Weather Station
 weather_station_uno_nrf24_receive_lcd_datalogging
 weather_station_uno_nrf24_transmit_dht22_voltage
 
+## Library Features
+
+- **Easy Configuration**: Simple API for setting up WiFi, sensors, and station credentials
+- **Multiple Sensors**: Support for DHT22 (temperature/humidity) and analog wind sensors
+- **Automatic Submission**: Configurable intervals for data collection and API submission
+- **Status Monitoring**: LED status indicators and comprehensive system information
+- **Error Handling**: Automatic retry logic and failure recovery
+- **Serial Commands**: Interactive debugging and testing commands
 
 ## Library Configuration Methods
 
@@ -88,14 +83,12 @@ station.setDHTPin(32, DHT22);        // DHT sensor on GPIO 32
 station.setStatusLEDPin(2);          // Status LED on GPIO 2
 station.setWindPin(36);              // Wind sensor on GPIO 36
 
-
 ### Timing Configuration
 station.setReadingInterval(3600000); // 1 hour in milliseconds
 station.setTimeouts(30000, 15000);   // WiFi and HTTP timeouts
 
 ### Wind Sensor Calibration
 station.setWindCalibration(3.3, 32.4); // 3.3V max = 32.4 MPH max
-
 
 ## Serial Commands
 When connected to Serial Monitor, you can use these commands:
@@ -132,8 +125,6 @@ station_id=1&passkey=YOUR_PASSKEY&temperature=72.5&humidity=45.2&wind_speed=5.3
 
 
 
-
-
 ## Troubleshooting
 
 ### Common Issues
@@ -165,7 +156,17 @@ cije-weather-station/
 │   ├── CijeWeatherStation.h
 │   └── CijeWeatherStation.cpp
 ├── examples/
-│   ├──
+│   ├── weather_station_esp32_basic_anemometer_test.ino
+│   ├── weather_station_esp32_basic_bme280.ino
+│   ├── weather_station_esp32_basic_bme280_test.ino
+│   ├── weather_station_esp32_basic_dht22.ino
+│   ├── weather_station_esp32_basic_dht22_test.ino
+│   ├── weather_station_esp32_library_anemometerpulse.ino
+│   ├── weather_station_esp32_library_dht22_test.ino
+│   ├── weather_station_library_esp32_basicdata_test.ino
+│   ├── weather_station_library_esp32_connection_test.ino
+│   ├── weather_station_uno_nrf24_receive_lcd_datalogging.ino
+│   ├── weather_station_uno_nrf24_transmit_dht22_voltage.ino
 ├── library.properties
 ├── keywords.txt
 └── README.md
@@ -173,7 +174,7 @@ cije-weather-station/
 
 ## Version History
 
-- **v1.0.0** - Initial release with DHT22 and wind sensor support
+- **v1.0.0** - Initial release with DHT22, BME280 and wind sensor support
 
 ## License
 
