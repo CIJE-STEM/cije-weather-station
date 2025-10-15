@@ -150,7 +150,7 @@ station_id=1&passkey=YOUR_PASSKEY&temperature=72.5&humidity=45.2&wind_speed=5.3
 
 ## Library Structure
 
-\`\`\`
+```
 cije-weather-station/
 ├── src/
 │   ├── CijeWeatherStation.h
@@ -166,11 +166,11 @@ cije-weather-station/
 │   ├── weather_station_library_esp32_basicdata_test.ino
 │   ├── weather_station_library_esp32_connection_test.ino
 │   ├── weather_station_uno_nrf24_receive_lcd_datalogging.ino
-│   ├── weather_station_uno_nrf24_transmit_dht22_voltage.ino
+│   └── weather_station_uno_nrf24_transmit_dht22_voltage.ino
 ├── library.properties
 ├── keywords.txt
 └── README.md
-\`\`\`
+```
 
 ## Version History
 
