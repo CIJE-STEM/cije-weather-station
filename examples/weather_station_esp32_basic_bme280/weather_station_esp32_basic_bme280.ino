@@ -11,7 +11,7 @@
  * - BME280 GND -> GND  
  * - BME280 SCL -> GPIO SCL
  * - BME280 SDA -> GPIO SDA
- * - Wind Speed Sensor Analog Out -> ADC1_CHANNEL_0 (GPIO 32) - or another suitable ADC pin
+ * - Wind Speed Sensor Analog Out -> ADC1_CHANNEL_0 (GPIO 34) - or another suitable ADC pin
  * - Wind Speed Sensor VCC -> 3.3V or 5V
  * - Wind Speed Sensor GND -> GND
  * 
@@ -40,7 +40,7 @@ const String STATION_NAME = "BJDelta";
 #define BME280_I2C_ADDR 0x76
 Adafruit_BME280 bme;
 
-#define ADC_PIN_WIND 32                              // Analog pin for wind speed sensor (e.g., GPIO 36 is ADC1_CHANNEL_0)
+#define ADC_PIN_WIND 34                              // Analog pin for wind speed sensor (e.g., GPIO 36 is ADC1_CHANNEL_0)
 
 // Hardware Specifications
 const String BOARD_MODEL = "ESP32-WROOM-32";

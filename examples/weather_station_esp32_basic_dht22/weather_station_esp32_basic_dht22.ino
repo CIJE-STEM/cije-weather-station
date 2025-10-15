@@ -3,15 +3,15 @@
  * 
  * Hardware:
  * - ESP32-WROOM-32 Development Board
- * - BME280 Temperature , Humidity and Pressure Sensor
+ * - DHT22
  * - Analog Wind Speed Sensor (e.g., anemometer with analog output)
- * 
+ *   Wiring: https://github.com/CIJE-STEM/cije-weather-station/blob/main/docs/weather_station_cije_anemometer.pdf 
+ *
  * Connections:
  * - DHT22 VCC -> 3.3V or 5V (DHT22 supports both)
  * - DHT22 GND -> GND  
- * - DHT Data -> GPIO Pin 2 
- * - BME280 SDA -> GPIO 
- * - Wind Speed Sensor Analog Out -> ADC1_CHANNEL_0 (GPIO 32) - or another suitable ADC pin
+ * - DHT Data -> GPIO Pin 32 
+ * - Wind Speed Sensor Analog Out -> ADC1_CHANNEL_0 (GPIO 34) - or another suitable ADC pin
  * - Wind Speed Sensor VCC -> 3.3V or 5V
  * - Wind Speed Sensor GND -> GND
  * 

@@ -2,27 +2,17 @@
  * CIJE Weather Hub - ESP32 Weather Station
  * 
  * This is a test program for testing the Wind Sensor
- * It uses the same pin configuration as the comple code
+ * It uses the same pin configuration as the complete code
  *  
  * Hardware:
  * - ESP32-WROOM-32 Development Board
- * - BME280 Temperature , Humidity and Pressure Sensor
  * - Analog Wind Speed Sensor (e.g., anemometer with analog output)
+ *   Wiring: https://github.com/CIJE-STEM/cije-weather-station/blob/main/docs/weather_station_cije_anemometer.pdf
  * 
  * Connections:
- * - BME280 VCC -> 3.3V or 5V (BME280 supports both)
- * - BME280 GND -> GND  
- * - BME280 SCL -> GPIO 
- * - BME280 SDA -> GPIO 
  * - Wind Speed Sensor Analog Out -> ADC1_CHANNEL_0 (GPIO 32) - or another suitable ADC pin
  * - Wind Speed Sensor VCC -> 3.3V or 5V
  * - Wind Speed Sensor GND -> GND
- *   Battery Voltage -> GPIO32 ADC4
- *
- * Libraries Required:
- * - WiFi (ESP32 Core)
- * - HTTPClient (ESP32 Core)
- * - Adafruit BME280 Temp/Humd/Press Sensor
  *
  */
 
@@ -31,7 +21,7 @@
 
 // Pin Assignments
 
-#define ADC_PIN_WIND 32                              // Analog pin for wind speed sensor (e.g., GPIO 36 is ADC1_CHANNEL_0)
+#define ADC_PIN_WIND 34                              // Analog pin for wind speed sensor (e.g., GPIO 36 is ADC1_CHANNEL_0)
 
 
 // Wind Speed Calibration (Adjust these values based on your sensor's datasheet and calibration)
