@@ -60,16 +60,17 @@ In addition to the test code for each component, there is main (no "test" suffix
 weather_station_uno_nrf24_receive_lcd_datalogging
 weather_station_uno_nrf24_transmit_dht22_voltage
 
-## Library Features
 
+
+## Library Configuration
+
+### Library Features
 - **Easy Configuration**: Simple API for setting up WiFi, sensors, and station credentials
 - **Multiple Sensors**: Support for DHT22 (temperature/humidity) and analog wind sensors
 - **Automatic Submission**: Configurable intervals for data collection and API submission
 - **Status Monitoring**: LED status indicators and comprehensive system information
 - **Error Handling**: Automatic retry logic and failure recovery
 - **Serial Commands**: Interactive debugging and testing commands
-
-## Library Configuration Methods
 
 ### Network Configuration
 station.setWiFiCredentials("SSID", "PASSWORD");
@@ -123,27 +124,36 @@ station_id=1&passkey=YOUR_PASSKEY&temperature=72.5&humidity=45.2&wind_speed=5.3
 - Automatic restart after 5 consecutive failures
 
 
-
-
 ## Troubleshooting
 
 ### Common Issues
 
-1. **DHT sensor not responding**
+1. **Getting an error when trying to upload to the ESP32
+   - Confirm the Upload speed (in Tools) is 115200
+   - Make sure no wires are in GPIO 0, 2, 12 or 15
+   - Not likely for this model ESP32, but may have to put the board in Boot mode
+     	1.	Disconnect USB.
+	   2.	Insert a jumper wire between GPIO0 → GND.
+	   3.	Reconnect USB while they are still connected.
+	   4.	Immediately start upload (Tools → Upload).
+	   5.	When upload starts showing “Connecting…”, press and release RESET (if you have one).
+	   6.	When flashing begins, you can remove the jumper.
+   
+2. **DHT sensor not responding**
    - Check wiring: VCC to 5V, GND to GND, DATA to GPIO 32
    - There are 3.3V pins and the DHT won't work
 
-2. **WiFi connection fails**
+3. **WiFi connection fails**
    - Verify SSID and password are correct
    - Check signal strength
    - Ensure 2.4GHz network (ESP32 doesn't support 5GHz)
 
-3. **API submission fails**
+4. **API submission fails**
    - Verify station ID and passkey are correct
    - Check internet connectivity
    - Confirm API URL is accessible
 
-4. **Wind sensor readings incorrect**
+5. **Wind sensor readings incorrect**
    - Calibrate using `setWindCalibration()`
    - Check analog pin connection (GPIO 36)
    - Verify sensor voltage range (0-5V)
@@ -167,6 +177,21 @@ cije-weather-station/
 │   ├── weather_station_library_esp32_connection_test.ino
 │   ├── weather_station_uno_nrf24_receive_lcd_datalogging.ino
 │   └── weather_station_uno_nrf24_transmit_dht22_voltage.ino
+├── data/
+│   └── anemometer_data-V_vs_RPM.jpg
+├── docs/
+│   ├── Cool_Neighborhoods_NYC_Report.pdf
+│   ├── DHT_adafruit_primer.pdf
+│   ├── ESP32-layout.png
+│   ├── ESP32pinout.png
+│   ├── ESP32setup.pdf
+│   ├── Weather and Wireless communication Teacher Guide
+│   ├── Weather and Wireless Communication Teacher Guide.pdf
+│   ├── Weather and Wireless Communication.pdf
+│   ├── Weather Station Build BME280 Basic.pdf
+│   ├── Weather Station Build DHT22 Basic.pdf
+│   ├── Weather Station Build.pdf
+│   └── weather_station_cije_anemometer.pdf
 ├── library.properties
 ├── keywords.txt
 └── README.md
