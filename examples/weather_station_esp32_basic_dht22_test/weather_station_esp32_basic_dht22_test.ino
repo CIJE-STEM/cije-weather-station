@@ -2,22 +2,16 @@
  * CIJE Weather Hub - ESP32 Weather Station
  *  
  * This is a test program for testing the DHT22 Sensor
- * It uses the same pin configuration as the comple code
+ * It uses the same pin configuration as the complete code
  *
  * Hardware:
  * - ESP32-WROOM-32 Development Board
- * - BME280 Temperature , Humidity and Pressure Sensor
- * - Analog Wind Speed Sensor (e.g., anemometer with analog output)
+ * - DHT22
  * 
  * Connections:
  * - DHT22 VCC -> 3.3V or 5V (DHT22 supports both)
  * - DHT22 GND -> GND  
  * - DHT Data -> GPIO Pin 2 
- * - BME280 SDA -> GPIO 
- * - Wind Speed Sensor Analog Out -> ADC1_CHANNEL_0 (GPIO 32) - or another suitable ADC pin
- * - Wind Speed Sensor VCC -> 3.3V or 5V
- * - Wind Speed Sensor GND -> GND
- *   Battery Voltage -> GPIO32 ADC4
  * 
  * Libraries Required:
  * - WiFi (ESP32 Core)
