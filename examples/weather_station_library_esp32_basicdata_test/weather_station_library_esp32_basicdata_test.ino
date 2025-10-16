@@ -1,7 +1,9 @@
 /*
  * 
- * Basic example using the CijeWeatherStation library
- * This example shows how to set up a weather station with DHT22 and wind sensor
+ * Basic test for data upload using the CIJE Weather Station library
+ *  
+ * You will need your local Wifi SSID and password 
+ * And to your station number and passkey, registered through https://thecije.org/weather-hub/
  */
 
 #include <CijeWeatherStation.h>
@@ -12,8 +14,8 @@ CijeWeatherStation station;
 // Configuration - UPDATE THESE VALUES!
 const char* WIFI_SSID = "YOUR_WIFI_SSID";
 const char* WIFI_PASSWORD = "YOUR_WIFI_PASSWORD";
-const int STATION_ID = 1;
-const char* PASSKEY = "20XV54";
+const int STATION_ID = 0;   //use your registered station ID number
+const char* PASSKEY = "000000";  //use your registered passkey number
 
 void setup() {
   Serial.begin(115200);
@@ -26,7 +28,7 @@ void setup() {
   station.setStationCredentials(STATION_ID, PASSKEY);
   station.setDHTPin(32, DHT22);           // DHT22 on GPIO 32
   station.setStatusLEDPin(2);             // Built-in LED
-  station.setWindPin(36);                 // Wind sensor on GPIO 36
+  station.setWindPin(34);                 // Wind sensor on GPIO 36
   station.setReadingInterval(3600000);    // 1 hour readings
   
   // Initialize the weather station

@@ -36,7 +36,7 @@
 
 DHT dht(DHTPIN, DHTTYPE);
 
-#define ADC_PIN_WIND 34                              // Analog pin for wind speed sensor (e.g., GPIO 36 is ADC1_CHANNEL_0)
+#define ADC_PIN_WIND 36                              // Analog pin for wind speed sensor (e.g., GPIO 36 is ADC1_CHANNEL_0)
 
 // Hardware Specifications
 const String BOARD_MODEL = "ESP32-WROOM-32";

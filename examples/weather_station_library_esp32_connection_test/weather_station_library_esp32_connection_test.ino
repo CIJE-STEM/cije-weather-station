@@ -1,19 +1,18 @@
 /*
- * SimpleTest.ino
  * 
  * Simple test example for quick DHT22 testing
  * Reads temperature and humidity every 30 seconds
  */
 
-#include <CijeWeatherStation.h>
+#include <CIJEWeatherStation.h>
 
-CijeWeatherStation station;
+CIJEWeatherStation station;
 
 // Configuration - UPDATE THESE VALUES!
-const char* WIFI_SSID = "PutnamChaley";
-const char* WIFI_PASSWORD = "67355976";
-const int STATION_ID = 1;
-const char* PASSKEY = "20XV54";
+const char* WIFI_SSID = "LOCAL_SSID";
+const char* WIFI_PASSWORD = "SSID_PASSWORD";
+const int STATION_ID = #; //Your registered Station ID
+const char* PASSKEY = "STATION_PASSKEY"; //Your registered station passkey
 
 void setup() {
   Serial.begin(115200);

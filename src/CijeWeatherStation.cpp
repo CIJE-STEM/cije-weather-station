@@ -1,12 +1,12 @@
 /*
- * CijeWeatherStation.cpp
+ * CIJEWeatherStation.cpp
  * CIJE Weather Hub - Arduino Library Implementation
  */
 
-#include "CijeWeatherStation.h"
+#include "CIJEWeatherStation.h"
 
 // Constructor
-CijeWeatherStation::CijeWeatherStation() {
+CIJEWeatherStation::CIJEWeatherStation() {
   // Initialize with default configuration
   config.wifiSSID = nullptr;
   config.wifiPassword = nullptr;
@@ -39,56 +39,56 @@ CijeWeatherStation::CijeWeatherStation() {
 }
 
 // Destructor
-CijeWeatherStation::~CijeWeatherStation() {
+CIJEWeatherStation::~CIJEWeatherStation() {
   if (dht != nullptr) {
     delete dht;
   }
 }
 
 // Configuration methods
-void CijeWeatherStation::setWiFiCredentials(const char* ssid, const char* password) {
+void CIJEWeatherStation::setWiFiCredentials(const char* ssid, const char* password) {
   config.wifiSSID = ssid;
   config.wifiPassword = password;
 }
 
-void CijeWeatherStation::setStationCredentials(int stationID, const char* passkey) {
+void CIJEWeatherStation::setStationCredentials(int stationID, const char* passkey) {
   config.stationID = stationID;
   config.passkey = passkey;
 }
 
-void CijeWeatherStation::setAPIURL(const char* url) {
+void CIJEWeatherStation::setAPIURL(const char* url) {
   config.apiURL = url;
 }
 
-void CijeWeatherStation::setDHTPin(int pin, int type) {
+void CIJEWeatherStation::setDHTPin(int pin, int type) {
   config.dhtPin = pin;
   config.dhtType = type;
 }
 
-void CijeWeatherStation::setStatusLEDPin(int pin) {
+void CIJEWeatherStation::setStatusLEDPin(int pin) {
   config.statusLedPin = pin;
 }
 
-void CijeWeatherStation::setWindPin(int pin) {
+void CIJEWeatherStation::setWindPin(int pin) {
   config.windPin = pin;
 }
 
-void CijeWeatherStation::setReadingInterval(unsigned long interval) {
+void CIJEWeatherStation::setReadingInterval(unsigned long interval) {
   config.readingInterval = interval;
 }
 
-void CijeWeatherStation::setWindCalibration(float voltageMax, float speedMaxMPH) {
+void CIJEWeatherStation::setWindCalibration(float voltageMax, float speedMaxMPH) {
   config.windVoltageMax = voltageMax;
   config.windSpeedMaxMPH = speedMaxMPH;
 }
 
-void CijeWeatherStation::setTimeouts(unsigned long wifiTimeout, unsigned long httpTimeout) {
+void CIJEWeatherStation::setTimeouts(unsigned long wifiTimeout, unsigned long httpTimeout) {
   config.wifiTimeout = wifiTimeout;
   config.httpTimeout = httpTimeout;
 }
 
 // Core methods
-bool CijeWeatherStation::begin() {
+bool CIJEWeatherStation::begin() {
   Serial.println("=== CIJE Weather Station Library v" CIJE_WEATHER_STATION_VERSION " ===");
   
   // Validate configuration
@@ -125,7 +125,7 @@ bool CijeWeatherStation::begin() {
   return true;
 }
 
-void CijeWeatherStation::loop() {
+void CIJEWeatherStation::loop() {
   if (!initialized) {
     return;
   }
@@ -148,7 +148,7 @@ void CijeWeatherStation::loop() {
   }
 }
 
-bool CijeWeatherStation::forceReading() {
+bool CIJEWeatherStation::forceReading() {
   if (!initialized) {
     Serial.println("❌ Weather station not initialized!");
     return false;
@@ -203,7 +203,7 @@ bool CijeWeatherStation::forceReading() {
 }
 
 // Private methods
-bool CijeWeatherStation::initializeHardware() {
+bool CIJEWeatherStation::initializeHardware() {
   // Initialize status LED
   pinMode(config.statusLedPin, OUTPUT);
   digitalWrite(config.statusLedPin, LOW);
@@ -233,7 +233,7 @@ bool CijeWeatherStation::initializeHardware() {
   return true;
 }
 
-bool CijeWeatherStation::connectToWiFi() {
+bool CIJEWeatherStation::connectToWiFi() {
   Serial.print("Connecting to WiFi: ");
   Serial.println(config.wifiSSID);
   
@@ -261,7 +261,7 @@ bool CijeWeatherStation::connectToWiFi() {
   }
 }
 
-WeatherReading CijeWeatherStation::readSensors() {
+WeatherReading CIJEWeatherStation::readSensors() {
   WeatherReading reading;
   reading.timestamp = millis();
   reading.isValid = false;
@@ -298,14 +298,14 @@ WeatherReading CijeWeatherStation::readSensors() {
   return reading;
 }
 
-float CijeWeatherStation::readWindSpeed() {
+float CIJEWeatherStation::readWindSpeed() {
   int adcValue = analogRead(config.windPin);
   float voltage = (float)adcValue / 4095.0 * config.windVoltageMax;
   float windSpeed = voltage * (config.windSpeedMaxMPH / config.windVoltageMax);
   return windSpeed;
 }
 
-bool CijeWeatherStation::submitReading(const WeatherReading& reading) {
+bool CIJEWeatherStation::submitReading(const WeatherReading& reading) {
   if (WiFi.status() != WL_CONNECTED) {
     Serial.println("❌ WiFi not connected");
     return false;
@@ -315,7 +315,7 @@ bool CijeWeatherStation::submitReading(const WeatherReading& reading) {
   http.begin(config.apiURL);
   http.setTimeout(config.httpTimeout);
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
-  http.addHeader("User-Agent", "CijeWeatherStation/" CIJE_WEATHER_STATION_VERSION);
+  http.addHeader("User-Agent", "CIJEWeatherStation/" CIJE_WEATHER_STATION_VERSION);
   
   // Create form data
   String postData = "station_id=" + String(config.stationID) +
@@ -342,7 +342,7 @@ bool CijeWeatherStation::submitReading(const WeatherReading& reading) {
   }
 }
 
-void CijeWeatherStation::updateStatusLED() {
+void CIJEWeatherStation::updateStatusLED() {
   static unsigned long lastBlink = 0;
   static bool ledState = false;
   
@@ -373,7 +373,7 @@ void CijeWeatherStation::updateStatusLED() {
   }
 }
 
-void CijeWeatherStation::blinkLED(int times, int duration) {
+void CIJEWeatherStation::blinkLED(int times, int duration) {
   for (int i = 0; i < times; i++) {
     digitalWrite(config.statusLedPin, HIGH);
     delay(duration);
@@ -383,11 +383,11 @@ void CijeWeatherStation::blinkLED(int times, int duration) {
 }
 
 // Status methods
-WeatherStationStatus CijeWeatherStation::getStatus() {
+WeatherStationStatus CIJEWeatherStation::getStatus() {
   return currentStatus;
 }
 
-const char* CijeWeatherStation::getStatusString() {
+const char* CIJEWeatherStation::getStatusString() {
   switch (currentStatus) {
     case WS_STATUS_INITIALIZING: return "Initializing";
     case WS_STATUS_WIFI_CONNECTING: return "WiFi Connecting";
@@ -403,28 +403,28 @@ const char* CijeWeatherStation::getStatusString() {
   }
 }
 
-bool CijeWeatherStation::isConnected() {
+bool CIJEWeatherStation::isConnected() {
   return WiFi.status() == WL_CONNECTED;
 }
 
-WeatherReading CijeWeatherStation::getLastReading() {
+WeatherReading CIJEWeatherStation::getLastReading() {
   return lastValidReading;
 }
 
-int CijeWeatherStation::getConsecutiveFailures() {
+int CIJEWeatherStation::getConsecutiveFailures() {
   return consecutiveFailures;
 }
 
-unsigned long CijeWeatherStation::getUptime() {
+unsigned long CIJEWeatherStation::getUptime() {
   return millis();
 }
 
-WeatherStationConfig CijeWeatherStation::getConfig() {
+WeatherStationConfig CIJEWeatherStation::getConfig() {
   return config;
 }
 
 // Utility methods
-void CijeWeatherStation::printSystemInfo() {
+void CIJEWeatherStation::printSystemInfo() {
   Serial.println("\n=== System Information ===");
   Serial.println("Library Version: " CIJE_WEATHER_STATION_VERSION);
   Serial.println("Station ID: " + String(config.stationID));
@@ -442,7 +442,7 @@ void CijeWeatherStation::printSystemInfo() {
   Serial.println("==========================\n");
 }
 
-void CijeWeatherStation::printWiFiStatus() {
+void CIJEWeatherStation::printWiFiStatus() {
   Serial.println("--- WiFi Status ---");
   if (WiFi.status() == WL_CONNECTED) {
     Serial.println("Status: Connected ✅");
@@ -456,7 +456,7 @@ void CijeWeatherStation::printWiFiStatus() {
   Serial.println("-------------------");
 }
 
-void CijeWeatherStation::printLastReading() {
+void CIJEWeatherStation::printLastReading() {
   Serial.println("--- Last Reading ---");
   if (lastValidReading.isValid) {
     Serial.println("Temperature: " + String(lastValidReading.temperature, 1) + "°F");
@@ -469,13 +469,13 @@ void CijeWeatherStation::printLastReading() {
   Serial.println("-------------------");
 }
 
-bool CijeWeatherStation::testSensors() {
+bool CIJEWeatherStation::testSensors() {
   Serial.println("Testing sensors...");
   WeatherReading reading = readSensors();
   return reading.isValid;
 }
 
-void CijeWeatherStation::restart() {
+void CIJEWeatherStation::restart() {
   Serial.println("Restarting ESP32...");
   delay(1000);
   ESP.restart();

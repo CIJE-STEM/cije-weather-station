@@ -1,5 +1,5 @@
 /*
- * CijeWeatherStation.h
+ * CIJEWeatherStation.h
  * CIJE Weather Hub - Arduino Library for ESP32 Weather Stations
  * 
  * This library provides a complete interface for ESP32-based weather stations
@@ -81,7 +81,7 @@ enum WeatherStationStatus {
   WS_STATUS_IDLE
 };
 
-class CijeWeatherStation {
+class CIJEWeatherStation {
 private:
   WeatherStationConfig config;
   DHT* dht;
@@ -103,10 +103,10 @@ private:
   
 public:
   // Constructor
-  CijeWeatherStation();
+  CIJEWeatherStation();
   
   // Destructor
-  ~CijeWeatherStation();
+  ~CIJEWeatherStation();
   
   // Configuration methods
   void setWiFiCredentials(const char* ssid, const char* password);

@@ -48,7 +48,7 @@ const String SENSOR_MODEL_BME280 = "BME280";
 const String SENSOR_MODEL_WIND = "Analog Anemometer";
 const String PROJECT_NAME = "CIJE Weather Hub - ESP32 Station";
 const String PROJECT_VERSION = "1.0.0";
-const String STATION_NAME = "BJDelta";
+const String STATION_NAME = "YOUR_STATION_NAME";
 
 // Sensor Specifications
 const float BM280_TEMP_MIN = -40.0;                 // BM280 minimum temperature (°C)
