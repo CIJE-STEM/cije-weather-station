@@ -6,10 +6,10 @@
  * And to your station number and passkey, registered through https://thecije.org/weather-hub/
  */
 
-#include <CijeWeatherStation.h>
+#include <CIJEWeatherStation.h>
 
 // Create weather station instance
-CijeWeatherStation station;
+CIJEWeatherStation station;
 
 // Configuration - UPDATE THESE VALUES!
 const char* WIFI_SSID = "YOUR_WIFI_SSID";
@@ -28,7 +28,7 @@ void setup() {
   station.setStationCredentials(STATION_ID, PASSKEY);
   station.setDHTPin(32, DHT22);           // DHT22 on GPIO 32
   station.setStatusLEDPin(2);             // Built-in LED
-  station.setWindPin(34);                 // Wind sensor on GPIO 36
+  station.setWindPin(34);                 // Wind sensor on GPIO 34
   station.setReadingInterval(3600000);    // 1 hour readings
   
   // Initialize the weather station

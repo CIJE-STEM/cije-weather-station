@@ -24,8 +24,8 @@ Change
 const int STATION_ID = 5;                           // Replace with your registered station ID
 const String PASSKEY = "EEGYLM";                   // Weather station passkey
 const char* WIFI_SSID = "OSxDesign_Rem";           // Replace with your WiFi network name
-const char* WIFI_PASSWORD = "ixnaywifi"; 
-const String STATION_NAME = "BJDelta";
+const char* WIFI_PASSWORD = "ixnaywifi";          // Replace with your WiFi password
+const String STATION_NAME = "BJDelta";            // Replace with your registered station name
  *
  */
 
