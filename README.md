@@ -11,8 +11,9 @@ There are 2 tracks to build a weather station:
 Track 1: WiFi enabled / Post to Weather Hub
 - ACEBOTT ESP32 development board
 - DHT22 temperature and humidity sensor
+OR
+  BME280 (Pressure, Temperature and Humidity)
 - Analog wind speed sensor (DC motor turbine)
-- BME280 (Pressure, Temperature and Humidity)
 
 The ESP32 will need to be setup in the Arduino IDE. Follow the [ESP32 Board Setup on Arduino](https://github.com/CIJE-STEM/cije-weather-station/blob/main/docs/ESP32setup.pdf)
 
